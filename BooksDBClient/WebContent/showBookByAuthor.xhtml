@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- index.xhtml -->
+<!-- Validating user input -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core">
+   <h:head>
+      <title>Books</title>
+      <h:outputStylesheet name="style.css" library="css"/>
+   </h:head>
+   <h:body>
+  <h:form>
+  <p>All authors</p>
+	 <h:body> 
+<!-- <ui:repeat var="item" value="#{CompanyNames.list}">   -->
+<!--      <h1>#{item}</h1>                                 -->
+<!--  </ui:repeat>                                        -->
+	<h:dataTable value="#{booksClient.showBookByAuthor}" var="item"
+         styleClass="bookTitle"
+         headerClass="bookTitleTableHeader"
+         rowClasses="bookTitleTableOddRow,bookTitleTableEvenRow">
+         <h:column>    				
+            <f:facet name="header">Title</f:facet>    				
+            #{clientBean.bookTitle}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Author</f:facet>
+            #{clientBean.authorFirstName}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Age</f:facet>
+            #{clientBean.authorLastName}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Year of publish</f:facet>
+            #{clientBean.yearOfPublish}
+         </h:column>
+          <h:column>
+            <f:facet name="header">Price</f:facet>
+            #{clientBean.price}
+         </h:column>
+      </h:dataTable>
+    </h:body>
+      </h:form>
+   </h:body>
+</html>
+

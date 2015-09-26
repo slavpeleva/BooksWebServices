@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- index.xhtml -->
+<!-- Validating user input -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core">
+   <h:head>
+      <title>Books</title>
+      <h:outputStylesheet name="style.css" library="css"/>
+   </h:head>
+   <h:body>
+  <h:form>
+  <p>If delete author you'll delete all his books</p>         
+         <h:panelGrid columns="1">         
+            <h:outputText value="Author's first name"/>          
+            <h:inputText id="firstNameInputText" required="true"
+               requiredMessage="Please enter first name"
+               value="#{booksClient.firstName}"
+               validatorMessage="Name must be fewer than 30 characters">
+               <f:validateLength maximum="30" />
+            </h:inputText>            
+            <h:message for="firstNameInputText" styleClass="error"/>                     
+         </h:panelGrid>   
+ 	  <h:commandButton  value="Delete Author" action="#{booksClient.delBooksAndAuthors}"/>   
+      </h:form>
+   </h:body>
+</html>
+

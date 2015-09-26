@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- index.xhtml -->
+<!-- Validating user input -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Books</title>
+	<h:outputStylesheet name="style.css" library="css" />
+</h:head>
+<h:body>
+	<h:form>
+		<p>All fields are required and must contain valid information</p>
+		<h:panelGrid columns="4">
+			<br></br>
+			<h:outputText value="Book title" />
+			<h:inputText id="bookTitleInputText" required="true"
+				requiredMessage="Please enter book title"
+				value="#{booksClient.bookTitle}"
+				validatorMessage="Name must be fewer than 30 characters">
+				<f:validateLength maximum="30" />
+			</h:inputText>
+			<h:message for="bookTitleInputText" styleClass="error" />
+			<br></br>
+			<h:outputText value="Book genre" />
+
+			<h:inputText id="genreInputText" required="true"
+				requiredMessage="Please enter book genre"
+				value="#{booksClient.genre}"
+				validatorMessage="Name must be fewer than 30 characters">
+				<f:validateLength maximum="30" />
+			</h:inputText>
+			<h:message for="genreInputText" styleClass="error" />
+			<br></br>
+			<h:outputText value="Book year of publish" />
+
+			<h:inputText id="yearOfPublishInputText" required="true"
+				requiredMessage="Please enter book genre"
+				value="#{booksClient.yearOfPublish}"
+				validatorMessage="Name must be fewer than 30 characters">
+				<f:validateLength maximum="30" />
+			</h:inputText>
+			<h:message for="yearOfPublishInputText" styleClass="error" />
+			<br></br>
+			<h:outputText value="Book's price" />
+
+			<h:inputText id="priceInputText" required="true"
+				requiredMessage="Please enter temperature !!!"
+				value="#{booksClient.price}"
+				validatorMessage="The input must be digit">
+				<f:validateDoubleRange />
+			</h:inputText>
+			<h:message for="priceInputText" styleClass="error2" />
+			<br></br>
+		</h:panelGrid>
+		<h:commandButton value="Update book by book's title" action="#{booksClient.update}" />
+
+	</h:form>
+</h:body>
+</html>
+

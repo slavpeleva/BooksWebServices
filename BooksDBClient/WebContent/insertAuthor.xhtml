@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- index.xhtml -->
+<!-- Validating user input -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core">
+   <h:head>
+      <title>Books</title>
+      <h:outputStylesheet name="style.css" library="css"/>
+   </h:head>
+   <h:body>
+  <h:form>
+  <p>Please insert Author's first and last name</p>         
+         <h:panelGrid columns="2">         
+            <h:outputText value="Author's first name"/>  
+            <br></br>       
+            <h:inputText id="firstNameTitleInputText" required="true"
+               requiredMessage="Please enter first name"
+               value="#{booksClient.firstName}"
+               validatorMessage="Name must be fewer than 30 characters">
+               <f:validateLength maximum="30" />
+            </h:inputText>            
+            <h:message for="firstNameTitleInputText" styleClass="error"/>           
+          <h:outputText value="Author's last name"/>
+          <br></br> 
+            <h:inputText id="lastNameInputText" required="true"
+               requiredMessage="Please enter last name"
+               value="#{booksClient.lastName}"
+               validatorMessage="Name must be fewer than 30 characters">
+               <f:validateLength maximum="30" />
+            </h:inputText>
+            <h:message for="lastNameInputText" styleClass="error"/>  
+         </h:panelGrid>   
+ 	  <h:commandButton  value="Insert Author" action="#{booksClient.insertAuthor}"/>   
+      </h:form>
+   </h:body>
+</html>
+
